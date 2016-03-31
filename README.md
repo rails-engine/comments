@@ -16,6 +16,14 @@ And then execute:
 $ bundle
 ```
 
+## Mount engine
+
+in `config/routes.rb`
+
+```rb
+mount Comments::Engine => "/comments"
+```
+
 ## Contributing
 
 Contribution directions go here.
