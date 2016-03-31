@@ -1,0 +1,3 @@
+var html = '<%= j(render(partial: '/comments/comment', locals: { comment: @comment })) %>';
+$('.comments').append(html);
+$('.new_comment [name="comment[body]"]').val('');

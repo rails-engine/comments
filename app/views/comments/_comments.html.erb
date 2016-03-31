@@ -1,0 +1,11 @@
+<div class="comments comments-<%= commentable.class.name.dasherize %>">
+  <div class="heading">Comments</div>
+  <div class="comments-list">
+    <%= render partial: '/comments/comment', collection: comments, as: :comment %>
+  </div>
+  <div class="comments-footer">
+    <%= will_paginate comments %>
+  </div>
+</div>
+
+<%= render partial: '/comments/form', locals: { comment: comments.new } %>

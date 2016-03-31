@@ -24,6 +24,14 @@ in `config/routes.rb`
 mount Comments::Engine => "/comments"
 ```
 
+## In view, render comment list:
+
+```erb
+# app/views/posts/show.html.erb
+
+<%= comments_tag(@post) %>
+```
+
 ## Contributing
 
 Contribution directions go here.

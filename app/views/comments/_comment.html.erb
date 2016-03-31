@@ -1,0 +1,22 @@
+<div id="comment-<%= comment.id %>" class="comment media">
+  <div class="media-left">
+    <%= link_to image_tag(comment.user_avatar_url), comment.user_profile_url,
+                                                    title: comment.user_name,
+                                                    class: 'user-avatar' %>
+  </div>
+  <div class="media-body">
+    <div class="media-heading">
+      <span class="name">
+        <%= link_to comment.user_name, comment.user_profile_url,
+                                       title: comment.user_name,
+                                       class: 'user-avatar' %>
+      </span>
+      <span class="time">
+        <%= l comment.created_at, format: :long %>
+      </span>
+    </div>
+    <div class="media-content markdown">
+      <%= simple_format comment.body %>
+    </div>
+  </div>
+</div>

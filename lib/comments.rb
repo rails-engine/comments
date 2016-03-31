@@ -1,6 +1,7 @@
 require 'comments/configuration'
 require 'comments/version'
 require 'comments/model'
+require 'comments/view_helpers'
 require 'comments/engine'
 require 'awesome_nested_set'
 require 'will_paginate'
@@ -25,3 +26,5 @@ module Comments
     end
   end
 end
+
+ActionController::Base.send(:helper, Comments::ViewHelpers)
