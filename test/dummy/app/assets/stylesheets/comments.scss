@@ -17,6 +17,7 @@
 
 
     .media-content {
+      color: #333;
       p:last-chind {
         margin-bottom: 0;
       }
@@ -30,6 +31,22 @@
       min-width: 100px;
       color: #AAA;
       font-size: 13px;
+    }
+
+    .reply-to {
+      padding: 5px 10px;
+      border-left: 1px solid #eee;
+      background: #F9F9F9;
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 10px;
+
+      a:link,
+      a:visited { text-decoration: underline; }
+    }
+
+    form {
+      margin-left: 40px;
     }
   }
 }

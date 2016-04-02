@@ -14,8 +14,19 @@
       <span class="time">
         <%= l comment.created_at, format: :long %>
       </span>
+      <span class="opts pull-xs-right">
+        <%= link_to "Reply", comments.reply_comment_path(comment), data: { remote: true } %>
+        <% if current_user.id == comment.user_id %>
+          <%= link_to "Delete", comments.comment_path(comment), data: { remote: true, confirm: "Are you sure?" } %>
+        <% end %>
+      </span>
     </div>
     <div class="media-content markdown">
+      <% if comment.parent_id %>
+      <div class="reply-to">
+        Reply with <a href="#comment-<%= comment.parent_id %>">#<%= comment.parent_id %></a>
+      </div>
+      <% end %>
       <%= simple_format comment.body %>
     </div>
   </div>

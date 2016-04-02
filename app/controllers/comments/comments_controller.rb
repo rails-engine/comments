@@ -20,6 +20,11 @@ module Comments
       @success = @comment.update(comment_params)
     end
 
+    def reply
+      @parent = Comment.find(params[:id])
+      @comment = Comment.new(parent_id: @parent.id, commentable: @parent.commentable)
+    end
+
     # DELETE /comments/1
     def destroy
       @comment.destroy
@@ -33,7 +38,7 @@ module Comments
 
       # Only allow a trusted parameter "white list" through.
       def comment_params
-        params.require(:comment).permit(:commentable_type, :commentable_id, :body)
+        params.require(:comment).permit(:commentable_type, :commentable_id, :parent_id, :body)
       end
   end
 end

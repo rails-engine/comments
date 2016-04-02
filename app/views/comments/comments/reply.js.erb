@@ -1,0 +1,5 @@
+var formHTML = '<%= j(render(partial: '/comments/form', locals: { comment: @comment })) %>';
+$(".comment .new_comment").remove();
+var commentItem = $("#comment-<%= @parent.id %>");
+commentItem.find(".new_comment").remove();
+commentItem.append(formHTML);
