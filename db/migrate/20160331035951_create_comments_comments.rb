@@ -5,9 +5,7 @@ class CreateCommentsComments < ActiveRecord::Migration
       t.string :commentable_type
       t.integer :commentable_id
       t.text :body
-      t.integer :parent_id
-      t.integer :lft
-      t.integer :rgt
+      t.integer :parent_id, :lft, :rgt
       t.integer :depth, default: 0, null: false
 
       t.timestamps null: false

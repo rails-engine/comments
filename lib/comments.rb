@@ -18,6 +18,7 @@ module Comments
       @config.user_profile_url_method = 'profile_url'
       @config.authenticate_user_method = 'authenticate_user!'
       @config.current_user_method = 'current_user'
+      @config.max_reply_depth = 10
       @config
     end
 

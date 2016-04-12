@@ -13,6 +13,10 @@
     border-bottom: 1px solid #eee;
     color: #999;
 
+    &.comment-depth-1 {
+      margin-left: 40px;
+    }
+
     a { color: #555; }
 
 

@@ -27,6 +27,10 @@ module Comments
 
     # DELETE /comments/1
     def destroy
+      if @comment.user_id != current_user.id
+        raise ActiveRecord::RecordNotFound
+      end
+
       @comment.destroy
     end
 

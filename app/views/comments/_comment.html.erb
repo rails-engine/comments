@@ -1,4 +1,6 @@
-<div id="comment-<%= comment.id %>" class="comment media">
+<div id="comment-<%= comment.id %>"
+    class="comment comment-depth-<%= comment.depth %> media"
+    data-parent-id="<%= comment.parent_id %>">
   <div class="media-left">
     <%= link_to image_tag(comment.user_avatar_url), comment.user_profile_url,
                                                     title: comment.user_name,
@@ -15,18 +17,16 @@
         <%= l comment.created_at, format: :long %>
       </span>
       <span class="opts pull-xs-right">
-        <%= link_to "Reply", comments.reply_comment_path(comment), data: { remote: true } %>
+        <% if comment.can_reply? %>
+          <%= link_to raw('<i class="fa fa-reply"></i>'), comments.reply_comment_path(comment), data: { remote: true } %>
+        <% end %>
+
         <% if current_user.id == comment.user_id %>
-          <%= link_to "Delete", comments.comment_path(comment), data: { remote: true, confirm: "Are you sure?" } %>
+          <%= link_to raw('<i class="fa fa-trash"></i>'), comments.comment_path(comment), data: { method: 'delete', remote: true, confirm: "Are you sure?" } %>
         <% end %>
       </span>
     </div>
     <div class="media-content markdown">
-      <% if comment.parent_id %>
-      <div class="reply-to">
-        Reply with <a href="#comment-<%= comment.parent_id %>">#<%= comment.parent_id %></a>
-      </div>
-      <% end %>
       <%= simple_format comment.body %>
     </div>
   </div>

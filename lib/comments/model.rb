@@ -28,5 +28,9 @@ module Comments
       return '#' if self.user.blank?
       self.user.send(Comments.config.user_profile_url_method)
     end
+
+    def can_reply?
+      self.depth <= Comments.config.max_reply_depth
+    end
   end
 end

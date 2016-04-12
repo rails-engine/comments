@@ -1,4 +1,14 @@
 var html = '<%= j(render(partial: '/comments/comment', locals: { comment: @comment })) %>';
-$('.comments').append(html);
+<% if @comment.parent_id %>
+  var children = $('.comments .comment[data-parent-id=<%= @comment.parent_id %>]');
+  console.log(children);
+  if (children.length > 0) {
+    children.last().after(html);
+  } else {
+    $('#comment-<%= @comment.parent_id %>').after(html);
+  }
+<% else %>
+  $('.comments').append(html);
+<% end %>
 $(".comment .new_comment").remove();
 $('.new_comment [name="comment[body]"]').val('');

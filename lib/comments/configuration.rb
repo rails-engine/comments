@@ -39,5 +39,8 @@ module Comments
 
     # authenticate_user method in your Controller, default: 'authenticate_user!'
     attr_accessor :authenticate_user_method
+
+    # Limit of reply depth, default: 10
+    attr_accessor :max_reply_depth
   end
 end

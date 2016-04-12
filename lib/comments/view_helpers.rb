@@ -6,7 +6,7 @@ module Comments
     end
 
     def comments_tag(commentable, opts = {})
-      comments = Comment.where(commentable: commentable).order("id asc").page(params[:page])
+      comments = Comment.where(commentable: commentable).order("lft asc, id asc").page(params[:page])
 
       render partial: '/comments/comments', locals: { commentable: commentable, comments: comments }
     end
