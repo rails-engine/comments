@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    comments (0.0.0)
+    comments (0.1.0)
       awesome_nested_set (>= 2.1.0)
       rails (>= 4.2.0, < 5.1)
       will_paginate (>= 3.0.0)
