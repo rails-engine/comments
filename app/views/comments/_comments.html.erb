@@ -4,7 +4,7 @@
     <%= render partial: '/comments/comment', collection: comments, as: :comment %>
   </div>
   <div class="comments-footer">
-    <%= will_paginate comments %>
+    <%= paginate comments %>
   </div>
 </div>
 

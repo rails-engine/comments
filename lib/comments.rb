@@ -4,8 +4,6 @@ require 'comments/model'
 require 'comments/view_helpers'
 require 'comments/engine'
 require 'awesome_nested_set'
-require 'will_paginate'
-require 'will_paginate/active_record'
 
 module Comments
   class << self

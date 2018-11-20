@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "README.md"]
 
-  s.add_dependency "rails", ">= 4.2.0", "< 5.1"
-  s.add_dependency 'will_paginate', '>= 3.0.0'
+  s.add_dependency "rails", ">= 4.2.0", "< 6"
+  s.add_dependency 'kaminari'
   s.add_dependency "awesome_nested_set", ">= 2.1.0"
 end

@@ -1,18 +1,8 @@
 # Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
 
-require 'factory_girl'
-FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
-
-require 'simplecov'
-if ENV['CI']=='true'
-  require 'codecov'
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
-end
-SimpleCov.start 'rails' do
-  add_filter 'lib/comments/version'
-  add_filter 'lib/generators'
-end
+require 'factory_bot'
+FactoryBot.definition_file_paths = [File.expand_path('../factories', __FILE__)]
 
 require File.expand_path("../dummy/config/environment", __FILE__)
 ActiveRecord::Migrator.migrations_paths = [
@@ -23,15 +13,11 @@ ActiveRecord::Migrator.migrations_paths = [
 require "rails/test_help"
 require 'minitest/mock'
 
-FactoryGirl.find_definitions
-
-# Filter out Minitest backtrace while allowing backtrace from other libraries
-# to be shown.
-Minitest.backtrace_filter = Minitest::BacktraceFilter.new
+FactoryBot.find_definitions
 
 # Load fixtures from the engine
 class ActiveSupport::TestCase
-  include FactoryGirl::Syntax::Methods
+  include FactoryBot::Syntax::Methods
 end
 
 class ActionView::TestCase
