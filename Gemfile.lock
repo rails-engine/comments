@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    comments (0.1.0)
+    comments (0.2.0)
       awesome_nested_set (>= 2.1.0)
       kaminari
       rails (>= 4.2.0, < 6)
